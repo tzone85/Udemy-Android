@@ -50,36 +50,36 @@ public class MainActivity extends AppCompatActivity {
         EditText usersNumber = (EditText) findViewById(R.id.editText);
         //Log.i("The user input ", usersNumber.getText().toString());
 
-
-
-        Number inani = new Number();
-        //inani.number=6;
-
-        inani.number = Integer.parseInt(usersNumber.getText().toString());
         String message="";
-        if(inani.isSquare()){
-            if(inani.isTriangular()){
-                message = inani.number +" is both Triangular and Square!!";
-            }
-            else{
-                message = inani.number + " is Square but not Triangular.";
-            }
-        }
+        if(usersNumber.getText().toString().isEmpty()){
+            message = "Please enter a number";
+        }else{
+            Number inani = new Number();
+            //inani.number=6;
 
-        else{
-            if(inani.isTriangular()){
-                message = inani.number +" is not Square!";
+            inani.number = Integer.parseInt(usersNumber.getText().toString());
+
+            if(inani.isSquare()){
+                if(inani.isTriangular()){
+                    message = inani.number +" is both Triangular and Square!!";
+                }
+                else{
+                    message = inani.number + " is Square but not Triangular.";
+                }
             }
+
             else{
-                message = inani.number + " is not Square nor Triangular.";
+                if(inani.isTriangular()){
+                    message = inani.number +" is not Square!";
+                }
+                else{
+                    message = inani.number + " is not Square nor Triangular.";
+                }
             }
         }
 
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
         //System.out.println(inani.isTriangular());
-
-
-
     }
 
     @Override
